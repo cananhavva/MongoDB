@@ -12,19 +12,18 @@ import com.mongodb.client.MongoDatabase;
 public class Connect2Database {
 	
 	public static void main(String[] args) {
-		try (MongoClient client = new MongoClient("localhost", 27017);) { // mongo veritabanı sistemine erişim sa�lad�k
-			MongoDatabase database = client.getDatabase("mongoDB"); // sistemdeki istediğimiz isimli veritabanı
-																	// kullanmak üzere aldık
+		
+		try (MongoClient client = new MongoClient("localhost", 27017);) {
+			MongoDatabase database = client.getDatabase("mongoDB");
+			
 			System.out.println("Mongo'ya başlandım");
 			
-			MongoCollection<Document> firstCollection = database.getCollection("firstCollection"); // mongoDB.firstCollection
-																									// isimli koleksyonu
-																									// (=tablo) geri
-																									// döndür
+			MongoCollection<Document> firstCollection = database.getCollection("firstCollection");
+			
 			System.out.println("ilk koleksiyonumu yarattım");
 			
-			Document document = new Document("title", "--------"); // her bir SQL row'u bir dok�mana tekab�l eder
-			firstCollection.insertOne(document); // veritabanına ekledik
+			Document document = new Document("title", "--------");
+			firstCollection.insertOne(document);
 			System.out.println(document.toJson());
 			System.out.println("ilk dökümanımı ekledim");
 			
@@ -38,8 +37,8 @@ public class Connect2Database {
 			myDocuments.add(new Document("title", "merhaba"));
 			myDocuments.add(
 					new Document("title", "Bildim").append("description", "bir gün okula giderken").append("myId", 15));
-			// firstCollection.insertMany(myDocuments);; // veritabanına br seferde birden
-			// çok veri ekleme
+			// firstCollection.insertMany(myDocuments);
+			
 			System.out.println("Verileri ekledim");
 			
 		} catch (Exception ex) {
