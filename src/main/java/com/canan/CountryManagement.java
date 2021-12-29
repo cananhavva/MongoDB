@@ -47,14 +47,14 @@ public class CountryManagement {
 		
 		ArrayList<City> cities = new ArrayList<>();
 		cities.add(city);
-		cities.add(City.builder().name("�stanbul").cityCode("34").population(15462452).altitude(40).latitude(41.015137)
+		cities.add(City.builder().name("istanbul").cityCode("34").population(15462452).altitude(40).latitude(41.015137)
 				.longitude(28.979530).build());
-		cities.add(City.builder().name("�zmir").cityCode("35").population(4367251).altitude(2).latitude(38.423733)
+		cities.add(City.builder().name("izmir").cityCode("35").population(4367251).altitude(2).latitude(38.423733)
 				.longitude(27.142826).build());
 		cities.add(City.builder().name("Malatya").cityCode("44").population(806156).altitude(977).latitude(38.356869)
 				.longitude(38.309669).build());
 		
-		Country country = Country.builder().capital(city).countryCode("TR").name("T�rkiye").population(84_342_846)
+		Country country = Country.builder().capital(city).countryCode("TR").name("Türkiye").population(84_342_846)
 				.cities(cities).telCode(90).build();
 		this.countries.add(country);
 	}
